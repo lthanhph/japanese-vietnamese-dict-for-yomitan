@@ -1,13 +1,15 @@
 # Japanese-Vietnamese dictionary for Yomitan
 
-dictionary data source: https://tudienjp.com/
+Dictionary data source: https://tudienjp.com/
 
-This is my personal project in my spare time and not an official project of any application.
+This is my personal project in my spare time and is not an official project of any application.
 
-Since the data source is not mine but taken from tudienjp.com, I do not guarantee its accuracy. When using it, if you find errors in translation, please refer to tudienjp.com or another dictionary.
+Since the data source is not mine but taken from tudienjp.com, I do not guarantee its accuracy. When using it, if you find errors in translation, please refer to tudienjp.com and other dictionaries.
 
-Run the following command and make sure you have python and all the necessary components installed. The zip file will appear in the output directory
+Run the following command and make sure you have installed python and all the necessary components.
 
 ```
 python main.py
-``` 
+```
+
+When CMD shows "success", the zip file will appear in the output folder

@@ -1,11 +1,12 @@
 import json
+import config
 
 class TagBank:
     def __init__(self) -> None:
-        self.jmdict_tag_bank_file = "./input/tag_bank_1.json"
+        self.jmdict_tag_bank_file = f"{config.input_dir}/tag_bank_1.json"
         self.jmdict_tag_bank = self.get_jmdict_tag_bank()
         self.tag_bank = []
-        self.ouput_file = "./output/JMdict/tag_bank_1.json"
+        self.ouput_file = f"{config.output_dir}/{config.dict_name}/tag_bank_1.json"
 
     def get_jmdict_tag_bank(self):
         try:

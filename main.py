@@ -1,15 +1,18 @@
-import xml.etree.ElementTree as ET
 from yomitandic import DicEntry, Dictionary, create_html_element
-import json
-from datetime import date
 from lxml import etree
-import os
+from datetime import date
 from tag_bank import TagBank
+import os
+import json
+import config
 
 def delete_all_item_inside_dir(dir_path):
     try:
         if os.path.exists(dir_path) and os.listdir(dir_path):
                 for item in os.listdir(dir_path):
+                    if item == ".gitignore":
+                        continue
+                    
                     item_path = dir_path + "/" + item
                     if os.path.isfile(item_path):
                         os.remove(item_path)
@@ -22,10 +25,12 @@ def delete_all_item_inside_dir(dir_path):
     except Exception as ex:
         print("Error occurs when deleting files inside output folder: ", ex)
 
-output_dir = "./output"
-input_dir = "./input"
 
-dictionary = Dictionary(f"{output_dir}/JMdict")
+output_dir = config.output_dir
+input_dir = config.input_dir
+dict_name = config.dict_name
+
+dictionary = Dictionary(f"{output_dir}/{dict_name}")
 
 # Path to your JMdict XML file
 jmdict_path = f"{input_dir}/JMdict.xml"
@@ -151,15 +156,15 @@ dictionary.export()
 tag_bank.write()
 
 # Open and read the JSON file
-with open('output/JMdict/index.json', 'w') as file:
+with open(f"output/{dict_name}/index.json", 'w') as file:
     today = date.today()
     index = {
-        "title": f"Tudienjp [{today}]",
+        "title": f"{dict_name} [{today}]",
         "format": 3,
-        "revision": f"Tudienjp.{today}",
+        "revision": f"{dict_name}.{today}",
         "sequenced": True,
         "author": "PhuLe",
-        "url": "https://github.com/lthanhph",
+        "url": "https://github.com/lthanhph/japanese-vietnamese-dict-for-yomitan",
         "description": "",
         "attribution": "This is data from tudienjp. See https://tudienjp.com/",
         "isUpdatable": True,
