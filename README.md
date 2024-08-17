@@ -1,0 +1,1 @@
+# japanese-vietnamese-dict-for-yomitan
