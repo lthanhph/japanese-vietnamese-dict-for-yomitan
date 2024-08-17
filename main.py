@@ -168,8 +168,8 @@ with open(f"output/{dict_name}/index.json", 'w') as file:
         "description": "",
         "attribution": "This is data from tudienjp. See https://tudienjp.com/",
         "isUpdatable": True,
-        "indexUrl": "https://github.com/lthanhph",
-        "downloadUrl": "https://github.com/lthanhph"
+        "indexUrl": "https://raw.githubusercontent.com/lthanhph/japanese-vietnamese-dict-for-yomitan/releases/download/Tudienjp/index.json",
+        "downloadUrl": "https://raw.githubusercontent.com/lthanhph/japanese-vietnamese-dict-for-yomitan/releases/download/Tudienjp.zip"
     }
     
     json.dump(index, file, indent=4)

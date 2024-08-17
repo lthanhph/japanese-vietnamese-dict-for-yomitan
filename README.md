@@ -13,3 +13,9 @@ python main.py
 ```
 
 When CMD shows "success", the zip file will appear in the output folder
+
+Or you can download form link
+
+```
+https://raw.githubusercontent.com/lthanhph/japanese-vietnamese-dict-for-yomitan/releases/download/Tudienjp.zip
+```
