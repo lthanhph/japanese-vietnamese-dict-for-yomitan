@@ -8,6 +8,6 @@
     "description": "",
     "attribution": "This is data from tudienjp. See https://tudienjp.com/",
     "isUpdatable": true,
-    "indexUrl": "https://github.com/lthanhph",
-    "downloadUrl": "https://github.com/lthanhph"
+    "indexUrl": "https://raw.githubusercontent.com/lthanhph/japanese-vietnamese-dict-for-yomitan/releases/download/Tudienjp/index.json",
+    "downloadUrl": "https://raw.githubusercontent.com/lthanhph/japanese-vietnamese-dict-for-yomitan/releases/download/Tudienjp.zip"
 }
