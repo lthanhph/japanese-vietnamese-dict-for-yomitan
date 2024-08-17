@@ -1,1 +1,1 @@
-# japanese-vietnamese-dict-for-yomitan
+# Japanese-Vietnamese dictionary for Yomitan
