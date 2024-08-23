@@ -46,7 +46,7 @@ class TagBank:
             if self.tag_bank != []:
                 file = open(self.ouput_file, 'x')
                 file.write(json.dumps(self.tag_bank))
-                
+                file.close()
         except Exception as ex:
             print("Error when create tag bank file: ", ex)
             
