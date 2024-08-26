@@ -1,4 +1,5 @@
-from yomitandic import DicEntry, Dictionary, create_html_element
+from yomitandic import create_html_element
+from dict_builder import DictEntry, Dictionary
 from lxml import etree
 from datetime import date
 from tag_bank import TagBank
@@ -183,7 +184,7 @@ if __name__ == "__main__":
                 if example!= []: content.append(example)                
                                                                           
         # Entry    
-        dict_entry = DicEntry(
+        dict_entry = DictEntry(
             kanji, 
             reading, 
             tag, 
@@ -206,13 +207,13 @@ if __name__ == "__main__":
             
             for kanji_ele in kanji_elements:
                 for reading_ele in reading_elements:
-                    dictionary.add_entry(DicEntry(kanji_ele.find('keb').text, reading_ele.find('reb').text, "forms", form, sequence_number=sequence))
+                    dictionary.add_entry(DictEntry(kanji_ele.find('keb').text, reading_ele.find('reb').text, "forms", form, sequence_number=sequence))
         
         elif len(reading_elements) > 1:
             form = [reading_ele.find('reb').text for reading_ele in reading_elements]
             
             for reading_ele in reading_elements:
-                dictionary.add_entry(DicEntry(reading_ele.find('reb').text, reading_ele.find('reb').text, "forms", form, sequence_number=sequence))
+                dictionary.add_entry(DictEntry(reading_ele.find('reb').text, reading_ele.find('reb').text, "forms", form, sequence_number=sequence))
 
     print("Parsing JMdict.xml file components ... ")
     # Iterate through each entry in the JMdict XML
@@ -252,9 +253,11 @@ if __name__ == "__main__":
             "indexUrl": f"https://raw.githubusercontent.com/lthanhph/japanese-vietnamese-dict-for-yomitan/releases/download/{dict_name}/index.json",
             "downloadUrl": f"https://raw.githubusercontent.com/lthanhph/japanese-vietnamese-dict-for-yomitan/releases/download/{dict_name}.zip"
         }
-                      
-    dictionary.export(index)
+    
+    dictionary.set_index(index)                  
+    dictionary.export()
     tag_bank.write()
 
     dictionary.zip()
     print('Success !!')
+    print('Please check the output folder')
