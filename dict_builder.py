@@ -4,9 +4,10 @@ import shutil
 from yomitandic import DicEntry, Dictionary
 
 class DictEntry(DicEntry):
-    def __init__(self, word, reading, tag="", definition=None, sequence_number=0):
+    def __init__(self, word, reading, tag="", deinflection="", definition=None, sequence_number=0):
         super().__init__(word, reading, tag, definition)
         self.sequence_number = sequence_number
+        self.deinflection = deinflection
         
     def to_list(self):
         if self.structured_content:
@@ -18,7 +19,7 @@ class DictEntry(DicEntry):
             self.word,
             self.reading,
             self.tag,
-            "",
+            self.deinflection,
             0,
             content,
             self.sequence_number,

@@ -118,7 +118,20 @@ if __name__ == "__main__":
                 tag += " " + entity_name
                 
         tag_bank.build(str(sense_count))
-        tag = str(sense_count) + " " + tag.strip()      
+        tag = str(sense_count) + " " + tag.strip()
+        
+        # Deinflection
+        deinflection = ""
+        if "v5" in tag:
+            deinflection += " v5"
+        if "v1" in tag:
+            deinflection += " v1"
+        if "vs-c" in tag or "vs-i" in tag or "vs-s" in tag:
+            deinflection += " vs"
+        if "adj-i" in tag:
+            deinflection += " adj-i"
+        
+        deinflection = deinflection.strip()
         
         # Defifition content                    
         content = []    
@@ -188,6 +201,7 @@ if __name__ == "__main__":
             kanji, 
             reading, 
             tag, 
+            deinflection,
             sequence_number=sequence
         )
         
@@ -207,13 +221,13 @@ if __name__ == "__main__":
             
             for kanji_ele in kanji_elements:
                 for reading_ele in reading_elements:
-                    dictionary.add_entry(DictEntry(kanji_ele.find('keb').text, reading_ele.find('reb').text, "forms", form, sequence_number=sequence))
+                    dictionary.add_entry(DictEntry(kanji_ele.find('keb').text, reading_ele.find('reb').text, "forms", "", form, sequence_number=sequence))
         
         elif len(reading_elements) > 1:
             form = [reading_ele.find('reb').text for reading_ele in reading_elements]
             
             for reading_ele in reading_elements:
-                dictionary.add_entry(DictEntry(reading_ele.find('reb').text, reading_ele.find('reb').text, "forms", form, sequence_number=sequence))
+                dictionary.add_entry(DictEntry(reading_ele.find('reb').text, reading_ele.find('reb').text, "forms", "", form, sequence_number=sequence))
 
     print("Parsing JMdict.xml file components ... ")
     # Iterate through each entry in the JMdict XML
