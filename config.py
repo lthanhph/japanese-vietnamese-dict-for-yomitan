@@ -3,7 +3,7 @@ import os
 create_temp_dict = False
 output_dir = "./output"
 input_dir = "./input"
-dict_name = "JA-VIdict"
+dict_name = "TudienJP"
 jmdict_path = f"{input_dir}/JMdict.xml"
 temp_dict_output = "./temp_dict"
 temp_dict_file = "temp_dict.json"

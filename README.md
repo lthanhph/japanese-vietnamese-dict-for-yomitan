@@ -13,5 +13,5 @@ Check the output directory after the command is finished
 Or download here
 
 ```
-https://raw.githubusercontent.com/lthanhph/japanese-vietnamese-dict-for-yomitan/releases/download/JA-VIdict.zip
+https://raw.githubusercontent.com/lthanhph/japanese-vietnamese-dict-for-yomitan/releases/download/TudienJP.zip
 ```
